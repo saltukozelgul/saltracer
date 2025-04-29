@@ -1,17 +1,14 @@
 package util
 
 import (
+	"Saltracer/src/types"
 	"flag"
 	"fmt"
 	"os"
 	"regexp"
 )
 
-type CLIArgs struct {
-	RootIP string
-}
-
-func ParseArgs() (*CLIArgs, error) {
+func ParseArgs() (*types.CLIArgs, error) {
 	help := flag.Bool("help", false, "Show help message")
 	flag.Parse()
 
@@ -32,20 +29,20 @@ func ParseArgs() (*CLIArgs, error) {
 		return nil, fmt.Errorf("invalid IP address format: %s", rootIP)
 	}
 
-	return &CLIArgs{
+	return &types.CLIArgs{
 		RootIP: args[0],
 	}, nil
 }
 
 func printHelp() {
-	fmt.Println("Network Topology Scanner")
-	fmt.Println("Usage: saltopo [options] <root_ip>")
+	fmt.Println("Saltracer")
+	fmt.Println("Usage: saltracer [options] <root_ip>")
 	fmt.Println("\nOptions:")
 	fmt.Println("  -help\t\tShow this help message")
 	fmt.Println("\nArguments:")
 	fmt.Println("  root_ip\tIP address of the root device to start scanning from")
 	fmt.Println("\nExample:")
-	fmt.Println("  saltopo 192.168.1.1")
+	fmt.Println("  saltracer 192.168.1.1")
 }
 
 func isValidIP(ip string) bool {

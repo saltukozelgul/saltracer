@@ -1,7 +1,7 @@
 package types
 
 type Node struct {
-	Index       int
+	ID          string
 	IPAddress   string
 	Type        string
 	Properties  map[string]interface{}
@@ -17,6 +17,6 @@ type Connection struct {
 }
 
 type Topology struct {
-	Nodes       map[int]*Node
+	Nodes       map[string]*Node
 	Connections []*Connection
 }

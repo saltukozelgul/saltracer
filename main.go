@@ -1,7 +1,7 @@
 package main
 
 import (
-	"NetworkTopology/src/util"
+	"Saltracer/src/util"
 )
 
 func main() {
